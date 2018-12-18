@@ -7,7 +7,10 @@
 
 using namespace std;
 
-// Ray class mostly copied from Peter Shirley and Keith Morley
+/**
+ * We want the direction vector to be stored in normal form
+ */
+
 class Ray {
     public:
         Ray(const Vector3f& orig, const Vector3f& dir) {
@@ -29,7 +32,7 @@ class Ray {
         }
         
         Vector3f pointAtParameter(float t) const {
-            return origin + direction * t;
+            return origin + direction.normalized() * t;
         }
     
     private:
